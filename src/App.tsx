@@ -1,12 +1,12 @@
 import { AppProvider } from "./providers";
-import { Typography } from "@mui/material";
+import { AppRoutes } from "./routes/AppRoutes";
 
-function App() {
+const App = () => {
   return (
     <AppProvider>
-      <Typography>Bluebird metrics portal</Typography>
+      <AppRoutes />
     </AppProvider>
   );
-}
+};
 
 export default App;

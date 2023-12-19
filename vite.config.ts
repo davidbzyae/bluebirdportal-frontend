@@ -10,7 +10,7 @@ const httpsConfig = {
 
 export default defineConfig({
   plugins: [react()],
-  base: "/metricsPortal",
+  base: "/portal",
   server: {
     host: "192.168.1.45",
     port: 3001,

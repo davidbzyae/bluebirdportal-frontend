@@ -1,3 +1,4 @@
+import { BrowserRouter } from "react-router-dom";
 import React from "react";
 import { ThemeProvider } from "./ThemeProvider";
 
@@ -6,5 +7,9 @@ type AppProviderProps = {
 };
 
 export const AppProvider = ({ children }: AppProviderProps): JSX.Element => {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return (
+    <BrowserRouter basename="/portal">
+      <ThemeProvider>{children}</ThemeProvider>
+    </BrowserRouter>
+  );
 };
