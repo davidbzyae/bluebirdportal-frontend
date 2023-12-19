@@ -1,0 +1,9 @@
+{
+  "short_name": "Bluebird",
+  "name": "Bluebird metrics portal",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "description": "Bluebird metrics portal from Bluebird Financial Services"
+}
