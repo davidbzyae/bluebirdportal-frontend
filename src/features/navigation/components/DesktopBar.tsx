@@ -1,7 +1,7 @@
-import { Box, Button, alpha, darken, styled } from "@mui/material";
+import { Box, Button, Divider, alpha, styled } from "@mui/material";
+import { FontIcon, ProgressiveImage } from "@/components/misc";
 
 import { BarProps } from "../types";
-import { FontIcon } from "@/components/misc";
 import { palette } from "@/styles";
 
 const StyledLinkButton = styled(Button)(({ theme }) =>
@@ -30,8 +30,8 @@ export const DesktopBar = ({
 
         bgcolor: "background.default",
 
-        border: `solid 1px ${darken(palette.background, 0.1)}`,
-        borderRadius: 1 / 8,
+        borderRadius: "12.5px",
+        boxShadow: "0 0 10px 0px rgba(0, 0, 0, .075)",
 
         zIndex: 3,
 
@@ -39,6 +39,20 @@ export const DesktopBar = ({
         overflow: "hidden",
       }}
     >
+      <ProgressiveImage
+        src="https://zyae.net/assets/images/brand/bluebird/bluebirdFull.svg"
+        sx={{
+          mx: 3,
+          my: 2,
+        }}
+      />
+
+      <Divider
+        sx={{
+          mx: -2,
+          mb: 1,
+        }}
+      />
       {routes.map((route) => {
         const active = activeCategory == route.category;
         return (
@@ -47,10 +61,6 @@ export const DesktopBar = ({
             key={route.category}
             onClick={() => navigateTo(route.to, route.category)}
             sx={{
-              borderRadius: "8px",
-
-              opacity: active ? 1 : 0.9,
-
               ":hover": {
                 bgcolor: alpha(palette.primary, 0.08),
               },
@@ -69,6 +79,30 @@ export const DesktopBar = ({
           </StyledLinkButton>
         );
       })}
+      <StyledLinkButton
+        sx={{
+          mt: "auto",
+        }}
+      >
+        <FontIcon
+          icon="fi-rr-messages-question"
+          size={20}
+          sx={{
+            width: 48,
+          }}
+        />
+        Support
+      </StyledLinkButton>
+      <StyledLinkButton>
+        <FontIcon
+          icon="fi fi-rr-settings"
+          size={20}
+          sx={{
+            width: 48,
+          }}
+        />
+        Settings
+      </StyledLinkButton>
     </Box>
   );
 };

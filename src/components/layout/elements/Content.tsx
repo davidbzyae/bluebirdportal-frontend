@@ -14,7 +14,7 @@ export const Content = ({ children, sx }: ContentProps) => {
       maxWidth="1700px"
       mx="auto"
       sx={{ overflowX: { xs: "hidden", sm: "inherit" }, ...sx }}
-      p={{ xs: 2, sm: 4, md: 4, lg: 8 }}
+      p={{ xs: 2, sm: 4, md: 4, lg: 4 }}
     >
       {children}
     </Box>

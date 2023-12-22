@@ -5,10 +5,10 @@ import { sizes } from "../sizes";
 
 const translucentStyle = (color: string = palette.accent) =>
   theme.unstable_sx({
-    bgcolor: alpha(color, 0.08),
+    bgcolor: alpha(color, 0.16),
     color: color,
     "&:hover": {
-      bgcolor: alpha(color, 0.16),
+      bgcolor: alpha(color, 0.24) + " !important",
     },
   });
 
@@ -38,7 +38,7 @@ export const MuiButton: Components<Theme>["MuiButton"] = {
           display: "flex",
           gap: 1,
 
-          borderRadius: sizes[size] / 2,
+          // borderRadius: sizes[size] / 2,
           whiteSpace: "nowrap",
 
           "&.Mui-disabled": {

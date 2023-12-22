@@ -1,6 +1,7 @@
 import { Outlet, RouteObject } from "react-router-dom";
 
 import { AppLayout } from "@/components";
+import { dashboardRoutes } from "@/features/dashboard";
 
 export const routes: RouteObject[] = [
   {
@@ -13,7 +14,7 @@ export const routes: RouteObject[] = [
     children: [
       {
         path: "/",
-        element: <>Dashboard</>,
+        children: dashboardRoutes,
       },
       {
         path: "/reports",

@@ -1,4 +1,4 @@
-import { Box, darken, styled } from "@mui/material";
+import { Box, alpha, styled } from "@mui/material";
 
 import { NavBar } from "@/features/navigation";
 import { palette } from "@/styles";
@@ -8,8 +8,11 @@ const Wrapper = styled(Box)(({ theme }) =>
     display: "flex",
     flexWrap: "nowrap",
 
-    bgcolor: darken(palette.background, 0.04),
-  })
+    background: `linear-gradient(135deg, ${alpha(
+      palette.primary,
+      0.25
+    )} 0%, rgba(153, 56, 255, .2) 100%)`,
+  }) 
 );
 
 const Main = styled("main")(({ theme }) =>
@@ -23,8 +26,8 @@ const Main = styled("main")(({ theme }) =>
 
     bgcolor: "background.default",
 
-    border: `solid 1px ${darken(palette.background, 0.1)}`,
-    borderRadius: 1 / 8,
+    borderRadius: "12.5px",
+    boxShadow: "0 0 10px 0px rgba(0, 0, 0, .075)",
 
     overflowY: "auto",
     overflowX: "hidden",
