@@ -1,8 +1,9 @@
 import { Avatar, Box, Button, Typography, useMediaQuery } from "@mui/material";
+import { OptionsList, useMenu } from "@/features/menus";
+import { palette, theme } from "@/styles";
 
 import { FontIcon } from "@/components";
-import { User } from "@/features/auth";
-import { theme } from "@/styles";
+import { User } from "../types";
 
 type AccountControlsOptions = {
   user: User;
@@ -11,13 +12,44 @@ type AccountControlsOptions = {
 export const AccountControls = ({ user }: AccountControlsOptions) => {
   const xs = useMediaQuery(theme.breakpoints.only("xs"));
 
+  const accountControlsMenu = useMenu({
+    variant: "popover",
+  });
+
   return (
     <>
+      <accountControlsMenu.Element {...accountControlsMenu.elementProps}>
+        <OptionsList
+          items={[
+            {
+              icon: "fi fi-rr-exit",
+              title: "Log out",
+              onClick: () => {},
+              disabled: false,
+              persistOnClick: false,
+              sx: {
+                "&:hover": {
+                  color: palette.error,
+                },
+              },
+            },
+            {
+              icon: "fi fi-rr-marker",
+              title: "Switch location",
+              onClick: () => {},
+              disabled: false,
+              persistOnClick: false,
+            },
+          ]}
+          variant={"popover"}
+        />
+      </accountControlsMenu.Element>
       <Button
         size={xs ? "medium" : "large"}
         sx={{
-          pl: xs ? 1 : 1.25,
+          pl: { xs: 0.75, sm: 1.25 },
         }}
+        onClick={(e) => accountControlsMenu.open(e)}
       >
         <Avatar
           sx={{ height: { xs: 30, sm: 32 }, width: { xs: 30, sm: 32 } }}
@@ -25,8 +57,8 @@ export const AccountControls = ({ user }: AccountControlsOptions) => {
           src={user.thumbnail}
         />
         {!xs && (
-          <Box component="span" mr={0.5} textTransform="none">
-            <Typography fontWeight={500} mb={-0.5}>
+          <Box component="span" textTransform="none">
+            <Typography fontWeight={500} mt={-0.25} mb={-0.5}>
               {user.username}
             </Typography>
             <Typography
@@ -38,7 +70,9 @@ export const AccountControls = ({ user }: AccountControlsOptions) => {
             </Typography>
           </Box>
         )}
-        <FontIcon icon="zi-angle-down" size={xs ? 10 : 12} />
+        <FontIcon
+          icon={`fi-rr-caret-${accountControlsMenu.isOpen ? "up" : "down"}`}
+        />
       </Button>
     </>
   );

@@ -21,6 +21,8 @@ export const Header = ({ title }: HeaderProps) => {
 
         display: "flex",
         alignItems: "center",
+
+        zIndex: 2,
       }}
     >
       <Typography variant="h1" fontSize={32} fontWeight={500}>
