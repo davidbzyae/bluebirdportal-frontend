@@ -1,3 +1,4 @@
 export * from "./FontIcon";
 export * from "./ImageIcon";
-export * from "./ProgressiveImage";
+
+export * from "./Image";
