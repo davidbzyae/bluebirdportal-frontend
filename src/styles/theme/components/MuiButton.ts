@@ -49,7 +49,7 @@ export const MuiButton: Components<Theme>["MuiButton"] = {
 
       if (variant === "translucent")
         styles.push(translucentStyle(palette[color]));
-      //   if (variant === "outlined") styles.push(outlinedStyle(palette.text));
+      if (variant === "outlined") styles.push(outlinedStyle(palette.text));
 
       return styles;
     },
