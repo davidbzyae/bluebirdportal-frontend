@@ -2,9 +2,9 @@ type Palette = { [key: string]: string };
 
 export const palette: Palette = {
   background: "#ffffff",
-  accent: "#1B1B1B",
+  accent: "#202124",
   primary: "#1958ff",
-  text: "#1B1B1B",
+  text: "#202124",
   textSecondary: "#333333",
   error: "#f7584d",
 };

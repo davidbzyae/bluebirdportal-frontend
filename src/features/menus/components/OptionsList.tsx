@@ -13,8 +13,8 @@ export const OptionsList = ({
   return (
     <Stack
       sx={{
-        py: variant == "sheet" ? 2 : 0,
-        p: 0.5,
+        py: variant == "sheet" ? 2 : 0.5,
+        px: variant == "popover" ? 0.5 : 0,
       }}
     >
       {items.map((item) => (
@@ -31,7 +31,7 @@ export const OptionsList = ({
             justifyContent: "left",
             gap: variant == "sheet" ? "26px" : 2,
 
-            borderRadius: "8px",
+            borderRadius: variant == "popover" ? "12.5px" : 0,
             fontSize: variant == "sheet" ? 14 : 14,
             fontWeight: "500",
             textTransform: "none",

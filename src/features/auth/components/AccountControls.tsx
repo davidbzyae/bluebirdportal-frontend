@@ -12,9 +12,7 @@ type AccountControlsOptions = {
 export const AccountControls = ({ user }: AccountControlsOptions) => {
   const xs = useMediaQuery(theme.breakpoints.only("xs"));
 
-  const accountControlsMenu = useMenu({
-    variant: "popover",
-  });
+  const accountControlsMenu = useMenu();
 
   return (
     <>
@@ -41,7 +39,7 @@ export const AccountControls = ({ user }: AccountControlsOptions) => {
               persistOnClick: false,
             },
           ]}
-          variant={"popover"}
+          variant={xs ? "sheet" : "popover"}
         />
       </accountControlsMenu.Element>
       <Button
@@ -57,7 +55,7 @@ export const AccountControls = ({ user }: AccountControlsOptions) => {
           src={user.thumbnail}
         />
         {!xs && (
-          <Box component="span" textTransform="none">
+          <Box component="span" textTransform="none" mr={0.5}>
             <Typography fontWeight={500} mt={-0.25} mb={-0.5}>
               {user.username}
             </Typography>
@@ -70,8 +68,10 @@ export const AccountControls = ({ user }: AccountControlsOptions) => {
             </Typography>
           </Box>
         )}
+
         <FontIcon
-          icon={`fi-rr-caret-${accountControlsMenu.isOpen ? "up" : "down"}`}
+          icon={`zi-angle-${accountControlsMenu.isOpen ? "up" : "down"}`}
+          size={xs ? 10 : 12}
         />
       </Button>
     </>

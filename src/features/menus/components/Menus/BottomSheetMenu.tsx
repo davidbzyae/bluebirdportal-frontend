@@ -11,12 +11,6 @@ export const BottomSheetMenu = (props: MenuElementProps) => {
     <BottomSheet
       onClick={(e) => {
         if (e.target instanceof Element) {
-          const isBackdrop = e.target.getAttribute("data-rsbs-backdrop");
-          if (isBackdrop) {
-            onClose();
-            return e.stopPropagation();
-          }
-
           const isCloseOnClickOption =
             e.target.getAttribute("id") == "closeOnClickOption" ||
             e.target.closest("#closeOnClickOption");
@@ -26,9 +20,7 @@ export const BottomSheetMenu = (props: MenuElementProps) => {
       }}
       ref={sheetRef}
       open={isOpen}
-      onDismiss={() => {
-        setTimeout(onClose, 100);
-      }}
+      onDismiss={onClose}
       header={header}
     >
       {other.children}
