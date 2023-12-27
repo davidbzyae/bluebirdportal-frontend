@@ -1,6 +1,8 @@
 import { AccountControls, User } from "@/features/auth/";
 import { Box, Typography } from "@mui/material";
 
+import { MobileBlurBar } from ".";
+
 type HeaderProps = {
   title: string;
 };
@@ -13,24 +15,33 @@ export const Header = ({ title }: HeaderProps) => {
   };
 
   return (
-    <Box
-      sx={{
-        px: { xs: 2, sm: 4 },
+    <>
+      <MobileBlurBar
+        title={title}
+        fadeTrigger={{ bar: 1, title: 48 }}
+        displayBackButton={false}
+      />
+      <Box
+        sx={{
+          pt: { xs: "calc(48px + env(safe-area-inset-top))", sm: 0 },
 
-        height: "100px",
+          px: { xs: 2, sm: 4 },
 
-        display: "flex",
-        alignItems: "center",
+          height: { xs: "fit-content", sm: "100px" },
 
-        zIndex: 2,
-      }}
-    >
-      <Typography variant="h1" fontSize={32} fontWeight={500}>
-        {title}
-      </Typography>
-      <Box ml="auto">
-        <AccountControls user={dummyUser} />
+          display: "flex",
+          alignItems: "center",
+
+          zIndex: 2,
+        }}
+      >
+        <Typography variant="h1" fontSize={32} fontWeight={500}>
+          {title}
+        </Typography>
+        <Box ml="auto">
+          <AccountControls user={dummyUser} />
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
