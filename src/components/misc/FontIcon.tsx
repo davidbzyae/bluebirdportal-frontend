@@ -8,7 +8,7 @@ const Icon = styled("i")({
 });
 
 type FontIconProps = React.ComponentProps<typeof Icon> & {
-  icon: string;
+  icon?: string;
   size?: number;
   color?: string;
 };

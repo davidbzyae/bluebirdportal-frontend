@@ -1,3 +1,3 @@
 export * from "./MenuElementProps";
-export * from "./OptionItem";
+export * from "./MenuOption";
 export * from "./MenuCTAButton";
