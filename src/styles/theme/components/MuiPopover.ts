@@ -10,7 +10,7 @@ export const MuiPopover: Components<Theme>["MuiPopover"] = {
       border: `solid 1px ${alpha(darken(palette.background, 0.72), 0.16)}`,
       borderRadius: 16,
 
-      boxShadow: "none",
+      boxShadow: "0 2.5px 5px 0px rgba(0, 0, 0, .16)",
     },
     root: {
       marginTop: 4,

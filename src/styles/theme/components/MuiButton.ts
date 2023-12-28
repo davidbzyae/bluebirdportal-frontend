@@ -1,26 +1,24 @@
 import { Components, Theme, alpha } from "@mui/material";
-import { palette, theme } from "..";
 
+import { palette } from "..";
 import { sizes } from "../sizes";
 
-const translucentStyle = (color: string = palette.accent) =>
-  theme.unstable_sx({
-    bgcolor: alpha(color, 0.16),
-    color: color,
-    "&:hover": {
-      bgcolor: alpha(color, 0.24) + " !important",
-    },
-  });
+export const translucentButtonStyle = (color: string = palette.accent) => ({
+  bgcolor: alpha(color, 0.16),
+  color: color,
+  "&:hover": {
+    bgcolor: alpha(color, 0.24) + " !important",
+  },
+});
 
-const outlinedStyle = (color: string = palette.accent) =>
-  theme.unstable_sx({
-    color: color,
-    border: `1px solid ${alpha(color, 0.25)}`,
-    "&:hover": {
-      bgcolor: alpha(color, 0.16),
-      border: `1px solid ${alpha(color, 0)}`,
-    },
-  });
+export const outlinedButtonStyle = (color: string = palette.accent) => ({
+  color: color,
+  border: `1px solid ${alpha(color, 0.25)}`,
+  "&:hover": {
+    bgcolor: alpha(color, 0.16),
+    border: `1px solid ${alpha(color, 0)}`,
+  },
+});
 
 export const MuiButton: Components<Theme>["MuiButton"] = {
   styleOverrides: {
@@ -38,7 +36,6 @@ export const MuiButton: Components<Theme>["MuiButton"] = {
           display: "flex",
           gap: 1,
 
-          // borderRadius: sizes[size] / 2,
           whiteSpace: "nowrap",
 
           "&.Mui-disabled": {
@@ -48,8 +45,9 @@ export const MuiButton: Components<Theme>["MuiButton"] = {
       ];
 
       if (variant === "translucent")
-        styles.push(translucentStyle(palette[color]));
-      if (variant === "outlined") styles.push(outlinedStyle(palette.text));
+        styles.push(theme.unstable_sx(translucentButtonStyle(palette[color])));
+      if (variant === "outlined")
+        styles.push(theme.unstable_sx(outlinedButtonStyle(palette[color])));
 
       return styles;
     },
