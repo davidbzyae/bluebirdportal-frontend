@@ -1,4 +1,4 @@
 export * from "./Menus";
 
-export * from "./OptionsList";
+export * from "./MenuOptionsList";
 export * from "./MenuCTAButtons";
