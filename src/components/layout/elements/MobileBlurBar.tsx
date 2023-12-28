@@ -7,7 +7,7 @@ import {
   darken,
   useMediaQuery,
 } from "@mui/material";
-import { OptionItem, OptionsList, useMenu } from "@/features/menus";
+import { MenuOption, MenuOptionsList, useMenu } from "@/features/menus";
 import { palette, theme } from "@/styles";
 
 import { FontIcon } from "@/components";
@@ -15,7 +15,7 @@ import { useScroll } from "@/hooks";
 
 type MoreButtonOptions = {
   icon?: string;
-  options?: OptionItem[];
+  options?: MenuOption[];
 };
 
 const MoreButton = ({ icon, options = [] }: MoreButtonOptions) => {
@@ -26,7 +26,7 @@ const MoreButton = ({ icon, options = [] }: MoreButtonOptions) => {
   return (
     <>
       <optionsSheet.Element {...optionsSheet.elementProps}>
-        <OptionsList variant="sheet" items={options} />
+        <MenuOptionsList variant="sheet" items={options} />
       </optionsSheet.Element>
       <Box minWidth="40px">
         {displayOptions && (
@@ -50,7 +50,7 @@ const MoreButton = ({ icon, options = [] }: MoreButtonOptions) => {
 type MobileBlurBarOptions = {
   fadeTrigger?: { bar: number; title?: number };
   title?: string;
-  options?: OptionItem[];
+  options?: MenuOption[];
   displayBackButton?: boolean;
   sx?: SxProps;
 };

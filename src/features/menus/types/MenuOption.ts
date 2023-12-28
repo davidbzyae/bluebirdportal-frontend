@@ -1,6 +1,6 @@
 import { SxProps } from "@mui/material";
 
-export type OptionItem = {
+export type MenuOption = {
   icon?: string;
   title: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;

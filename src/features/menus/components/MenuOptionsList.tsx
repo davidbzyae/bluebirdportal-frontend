@@ -1,15 +1,19 @@
-import { Button, Stack } from "@mui/material";
+import { Button, Stack, useMediaQuery } from "@mui/material";
 
 import { FontIcon } from "@/components";
-import { OptionItem } from "..";
+import { MenuOption } from "..";
+import { theme } from "@/styles";
 
-export const OptionsList = ({
-  variant,
-  items,
-}: {
-  variant: "sheet" | "popover";
-  items: OptionItem[];
-}) => {
+type MenuOptionsListOptions = {
+  variant?: "sheet" | "popover";
+  items: MenuOption[];
+};
+
+export const MenuOptionsList = ({ variant, items }: MenuOptionsListOptions) => {
+  const xs = useMediaQuery(theme.breakpoints.only("xs"));
+
+  variant = variant || (xs ? "sheet" : "popover");
+
   return (
     <Stack
       sx={{
@@ -32,7 +36,7 @@ export const OptionsList = ({
             gap: variant == "sheet" ? "26px" : 2,
 
             borderRadius: variant == "popover" ? "12.5px" : 0,
-            fontSize: variant == "sheet" ? 14 : 14,
+            fontSize: variant == "sheet" ? 16 : 14,
             fontWeight: "500",
             textTransform: "none",
 
