@@ -1,7 +1,8 @@
 import { Outlet, RouteObject } from "react-router-dom";
 
 import { AppLayout } from "@/components";
-import { dashboardRoutes } from "@/features/dashboard";
+import { overviewRoutes } from "@/features/overview";
+import { reportsRoutes } from "@/features/reports";
 
 export const routes: RouteObject[] = [
   {
@@ -14,11 +15,11 @@ export const routes: RouteObject[] = [
     children: [
       {
         path: "/",
-        children: dashboardRoutes,
+        children: overviewRoutes,
       },
       {
         path: "/reports",
-        element: <>Reports</>,
+        children: reportsRoutes,
       },
       {
         path: "/payroll",

@@ -40,7 +40,7 @@ const routes: NavigationRoute[] = [
 export const NavBar = () => {
   const navigate = useAppNavigate();
   const sm = useMediaQuery(theme.breakpoints.down("sm"));
-  const [activeCategory, setActiveCategory] = useState("Dashboard");
+  const [activeCategory, setActiveCategory] = useState("Overview");
 
   const navigateTo = (to: string, category: string) => {
     navigate(to);
