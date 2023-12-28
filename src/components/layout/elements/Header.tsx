@@ -8,12 +8,6 @@ type HeaderProps = {
 };
 
 export const Header = ({ title }: HeaderProps) => {
-  const dummyUser: User = {
-    role: "admin",
-    thumbnail: "/portal/dummyUserThumbnail.jpg",
-    username: "Ronny",
-  };
-
   return (
     <>
       <MobileBlurBar
@@ -39,7 +33,7 @@ export const Header = ({ title }: HeaderProps) => {
           {title}
         </Typography>
         <Box ml="auto">
-          <AccountControls user={dummyUser} />
+          <AccountControls />
         </Box>
       </Box>
     </>
