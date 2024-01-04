@@ -1,17 +1,9 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Typography,
-  alpha,
-  colors,
-  useMediaQuery,
-} from "@mui/material";
-import { MenuCTAButtons, MenuOptionsList, useMenu } from "@/features/menus";
-import { palette, theme, translucentButtonStyle } from "@/styles";
+import { Avatar, Box, Button, Typography, useMediaQuery } from "@mui/material";
+import { MenuOptionsList, useMenu } from "@/features/menus";
 
 import { FontIcon } from "@/components";
-import { User } from "../..";
+import { User } from "@/features/auth";
+import { theme } from "@/styles";
 
 type ProfileButtonOptions = {
   user: User;
@@ -28,36 +20,23 @@ export const ProfileButton = ({ user }: ProfileButtonOptions) => {
         <MenuOptionsList
           items={[
             {
-              icon: "fi fi-rr-bell",
-              title: "Notifications",
-              onClick: () => {},
-              disabled: false,
-              persistOnClick: false,
-            },
-            {
               icon: "fi fi-rr-marker",
               title: "Switch location",
               onClick: () => {},
               disabled: false,
               persistOnClick: false,
             },
-          ]}
-        />
-        <MenuCTAButtons
-          buttons={[
+            {
+              icon: "fi fi-rr-user-pen",
+              title: "Edit profile",
+              onClick: () => {},
+              persistOnClick: false,
+            },
             {
               icon: "fi fi-rr-exit",
               title: "Sign out",
               onClick: () => {},
               persistOnClick: false,
-              sx: translucentButtonStyle(colors.red["A200"]),
-            },
-            {
-              icon: "fi fi-rr-edit",
-              title: "Edit profile",
-              onClick: () => {},
-              persistOnClick: false,
-              sx: translucentButtonStyle(palette.primary),
             },
           ]}
         />
@@ -80,7 +59,7 @@ export const ProfileButton = ({ user }: ProfileButtonOptions) => {
               {user.username}
             </Typography>
             <Typography fontSize={12} textTransform="capitalize">
-              {user.role}
+              Accounting {user.role}
             </Typography>
           </Box>
         )}

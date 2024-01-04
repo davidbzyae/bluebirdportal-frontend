@@ -1,16 +1,12 @@
 import { Box } from "@mui/material";
 import { NotificationsButton } from "./NotificationsButton";
 import { ProfileButton } from "./ProfileButton";
-import { User } from "../..";
-
-const dummyUser: User = {
-  role: "accounting admin",
-  thumbnail: "/portal/dummyUserThumbnail.jpg",
-  username: "Ronny",
-};
+import { useUser } from "@/features/auth";
 
 export const AccountControls = () => {
-  const user = dummyUser;
+  const user = useUser();
+
+  if (!user.data) return null;
 
   return (
     <>
@@ -21,7 +17,7 @@ export const AccountControls = () => {
         }}
       >
         <NotificationsButton />
-        <ProfileButton user={user} />
+        <ProfileButton user={user.data} />
       </Box>
     </>
   );
