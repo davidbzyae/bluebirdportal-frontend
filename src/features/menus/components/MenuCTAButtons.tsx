@@ -1,24 +1,24 @@
 import { Box, Button, useMediaQuery } from "@mui/material";
-import { sizes, theme } from "@/styles";
 
 import { FontIcon } from "@/components";
 import { MenuCTAButton } from "@/features/menus";
+import { theme } from "@/styles";
 
 type MenuCTAButtonsOptions = {
-  variant?: "sheet" | "popover";
+  variant?: "sheet" | "context";
   buttons: MenuCTAButton[];
 };
 
 export const MenuCTAButtons = ({ variant, buttons }: MenuCTAButtonsOptions) => {
   const xs = useMediaQuery(theme.breakpoints.only("xs"));
 
-  variant = variant || (xs ? "sheet" : "popover");
+  variant = variant || (xs ? "sheet" : "context");
 
   return (
     <Box
       sx={{
         borderTop:
-          variant == "popover" ? "1px solid rgb(229, 229, 229)" : "none",
+          variant == "context" ? "1px solid rgb(229, 229, 229)" : "none",
 
         pt: variant == "sheet" ? 0 : 2,
         pb: variant == "sheet" ? 2 : 2,
@@ -31,6 +31,7 @@ export const MenuCTAButtons = ({ variant, buttons }: MenuCTAButtonsOptions) => {
     >
       {buttons.map((button, i) => (
         <Button
+          key={i}
           variant={button.variant}
           size={variant == "sheet" ? "medium" : "small"}
           sx={{

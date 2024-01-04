@@ -1,7 +1,7 @@
 import { MenuElementProps } from "@/features/menus";
 import { Popover } from "@mui/material";
 
-export const PopoverMenu = (props: MenuElementProps) => {
+export const ContextMenu = (props: MenuElementProps) => {
   const { isOpen, onOpen, onClose, anchorEl, ...other } = props;
 
   return (
@@ -22,6 +22,13 @@ export const PopoverMenu = (props: MenuElementProps) => {
         }
       }}
       {...other}
+      slotProps={{
+        paper: {
+          sx: {
+            borderRadius: "12.5px",
+          },
+        },
+      }}
     >
       {props.children}
     </Popover>

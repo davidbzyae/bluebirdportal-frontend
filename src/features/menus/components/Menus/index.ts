@@ -1,3 +1,3 @@
-export * from "./PopoverMenu";
+export * from "./ContextMenu";
 export * from "./PopupMenu";
 export * from "./BottomSheetMenu";

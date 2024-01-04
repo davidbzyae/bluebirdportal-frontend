@@ -5,20 +5,20 @@ import { MenuOption } from "..";
 import { theme } from "@/styles";
 
 type MenuOptionsListOptions = {
-  variant?: "sheet" | "popover";
+  variant?: "sheet" | "context";
   items: MenuOption[];
 };
 
 export const MenuOptionsList = ({ variant, items }: MenuOptionsListOptions) => {
   const xs = useMediaQuery(theme.breakpoints.only("xs"));
 
-  variant = variant || (xs ? "sheet" : "popover");
+  variant = variant || (xs ? "sheet" : "context");
 
   return (
     <Stack
       sx={{
         py: variant == "sheet" ? 2 : 0.5,
-        px: variant == "popover" ? 0.5 : 0,
+        px: variant == "context" ? 0.5 : 0,
       }}
     >
       {items.map((item) => (
@@ -35,12 +35,12 @@ export const MenuOptionsList = ({ variant, items }: MenuOptionsListOptions) => {
             justifyContent: "left",
             gap: variant == "sheet" ? "26px" : 2,
 
-            borderRadius: variant == "popover" ? "12.5px" : 0,
+            borderRadius: variant == "context" ? "8px" : 0,
             fontSize: variant == "sheet" ? 16 : 14,
             fontWeight: "500",
             textTransform: "none",
 
-            ...(variant == "popover" && {
+            ...(variant == "context" && {
               "&:not(&:last-child)": {
                 borderBottom: "1px solid rgba(255,255,255,.05)",
               },
@@ -53,7 +53,7 @@ export const MenuOptionsList = ({ variant, items }: MenuOptionsListOptions) => {
             icon={item.icon || ""}
             size={variant == "sheet" ? 20 : 16}
             sx={{
-              minWidth: 20,
+              width: variant == "sheet" ? 20 : 16,
             }}
           />
           {item.title}
