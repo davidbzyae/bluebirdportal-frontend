@@ -1,4 +1,5 @@
-import { SpinnerPage } from "@/components";
+import { DelayFade, LoaderPage, LogoLoader } from "@/components";
+
 import { routes } from "./routes";
 import { useAuthServices } from "@/hooks";
 import { useRoutes } from "react-router-dom";
@@ -10,13 +11,14 @@ export const AppRoutes = () => {
 
   if (!tokens.data || !user.data)
     return (
-      <SpinnerPage
+      <LoaderPage
+        fadeInDelay={1500}
+        loader={<LogoLoader />}
         sx={{
           height: "100vh",
         }}
-        fadeInDelay={1000}
       />
     );
 
-  return element;
+  return <DelayFade>{element}</DelayFade>;
 };

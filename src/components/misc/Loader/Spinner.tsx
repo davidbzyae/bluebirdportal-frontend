@@ -42,12 +42,13 @@ interface SpinnerProps extends React.ComponentProps<typeof Box> {
 
 export const Spinner = ({
   color = palette.accent,
-  size = 32,
+  size = 40,
   fadeInDelay,
   sx,
+  ...other
 }: SpinnerProps) => {
   return (
-    <DelayFade delay={fadeInDelay}>
+    <DelayFade delay={fadeInDelay} {...other}>
       <Box
         sx={{
           position: "relative",

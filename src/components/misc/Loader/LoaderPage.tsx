@@ -1,14 +1,21 @@
 import { Box } from "@mui/material";
+import { DelayFade } from "..";
 import React from "react";
-import { Spinner } from "./Spinner";
 
-interface SpinnerPageOptions extends React.ComponentProps<typeof Box> {
+interface LoaderPageOptions extends React.ComponentProps<typeof Box> {
   fadeInDelay?: number;
+  loader: JSX.Element;
 }
 
-export const SpinnerPage = ({ fadeInDelay, sx }: SpinnerPageOptions) => {
+export const LoaderPage = ({
+  fadeInDelay,
+  loader,
+  sx,
+  ...other
+}: LoaderPageOptions) => {
   return (
     <Box
+      {...other}
       sx={{
         height: "100%",
         width: "100%",
@@ -20,7 +27,7 @@ export const SpinnerPage = ({ fadeInDelay, sx }: SpinnerPageOptions) => {
         ...sx,
       }}
     >
-      <Spinner fadeInDelay={fadeInDelay} />
+      <DelayFade delay={fadeInDelay}>{loader}</DelayFade>
     </Box>
   );
 };
